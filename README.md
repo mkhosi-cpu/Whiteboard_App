@@ -21,3 +21,6 @@ running is limited. It is expected that it should take no longer than **a few ho
 running but you have a week to complete it.
 
 As a stretch goal, you'd also like to ensure that access to the whiteboard application is secured via TLS.
+
+
+Execution Plan 
