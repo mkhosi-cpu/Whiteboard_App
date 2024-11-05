@@ -23,4 +23,46 @@ running but you have a week to complete it.
 As a stretch goal, you'd also like to ensure that access to the whiteboard application is secured via TLS.
 
 
-Execution Plan 
+Prerequisites:
+
+1. AWS Account: Ensure you have access to an AWS account.
+2. AWS CLI: Installed and configured with proper credentials.
+3. kubectl: Installed and configured to work with EKS.
+4. Terraform: Installed for infrastructure provisioning.
+5. Docker: Installed, though you're using a pre-built Docker image.
+
+Step-by-Step Process:
+
+Step 1: Set up Terraform Configuration
+- Create a directory for your Terraform files:
+- Write the Terraform configuration for the EKS cluster:
+- Initialize Terraform:
+- Apply the configuration:
+
+Step 2: Configure Kubernetes (kubectl)
+- Configure kubectl to connect to your EKS cluster:
+- Test the connection:
+
+Step 3: Deploy the WBO Application
+- Create a Kubernetes Deployment and Service for the whiteboard app
+- Deploy the app:
+- Check the service to get the Load Balancer DNS:
+
+Step 4: Set Up DNS with Route 53
+- Create a Route 53 Hosted Zone: You can set up a custom domain for your application using Route 53.
+- Create a DNS record for your application: Point a subdomain (like test.yourdomain.com and prod.yourdomain.com) to the Load Balancer DNS of the respective environments.
+
+Step 5: Automating Deployments with Terraform (Optional)
+You can integrate your Kubernetes deployment with Terraform for a more automated infrastructure + app deployment setup
+
+Step 6: Testing and Production Environment Setup
+- Create a separate EKS cluster for testing or use namespaces in the same cluster.
+- Deploy the app to the test environment and run load tests to ensure performance and scalability.
+- After validation, you can deploy to the production environment.
+
+Step 7: Monitoring and Scaling
+- Set up CloudWatch for monitoring your EKS cluster and application.
+- Enable Auto-scaling in the EKS cluster by configuring the appropriate Kubernetes Horizontal Pod Autoscaler (HPA) or AWS Auto Scaling Groups.
+
+This setup ensures that your whiteboard application is hosted in a robust, scalable, and production-ready environment, with identical test and production setups for continuous deployment.
+
