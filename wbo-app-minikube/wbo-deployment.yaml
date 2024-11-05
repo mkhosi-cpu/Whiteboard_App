@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wbo-deployment
+  labels:
+    app: wbo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wbo
+  template:
+    metadata:
+      labels:
+        app: wbo
+    spec:
+      containers:
+      - name: wbo
+        image: lovasoa/wbo:latest
+        ports:
+        - containerPort: 8080
